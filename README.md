@@ -1,59 +1,79 @@
-# CoachCarter
+# Coach Carter - Angular 20 Time Tracker
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7.
+Modern bir Angular 20 uygulaması ile kişisel coaching zaman takibi.
 
-## Development server
+## Özellikler
 
-To start a local development server, run:
+### ⏱️ Timer Sistemi
 
-```bash
-ng serve
+- Start/stop/pause fonksiyonları
+- Kategori ve hedef seçimi
+- Real-time sayaç (HH:MM:SS)
+- Otomatik kayıt (stop durumunda)
+
+### 📊 Dashboard
+
+- Bugünün özeti (toplam süre, kategori dağılımı)
+- Aktif timer göstergesi
+- Hızlı başlat butonları
+
+### 📁 Kategori Yönetimi
+
+- CRUD operations (Create, Read, Update, Delete)
+- Renk kodlu kategoriler
+- Kategori bazlı zaman takibi
+
+### 📈 Analitik
+
+- Haftalık bar chart
+- Kategori dağılımı
+- Performans metrikleri
+
+## Teknik Özellikler
+
+- **Angular 20** (zoneless mode)
+- **Standalone components** (default)
+- **Signals** for state management
+- **LocalStorage** ile veri saklama
+- **Responsive, mobile-first** design
+- **Inline templates** ve styles
+
+## Proje Yapısı
+
+```
+src/app/
+├── core/
+│   ├── models/          # TypeScript interfaces
+│   ├── services/        # Signal-based services
+│   └── utils/           # Helper functions
+├── shared/              # Reusable components & pipes
+└── pages/               # Page components
+    ├── dashboard.ts
+    ├── timer.ts
+    ├── categories/
+    └── analytics/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Kurulum
 
 ```bash
-ng generate component component-name
+npm install
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Kullanım
 
-```bash
-ng generate --help
-```
+1. **Kategoriler**: Önce kategorilerinizi oluşturun
+2. **Timer**: Kategori seçerek zaman takibine başlayın
+3. **Dashboard**: Günlük özetinizi görün
+4. **Analitik**: Haftalık performansınızı analiz edin
 
-## Building
+## Veri Modelleri
 
-To build the project run:
+- **Category**: id, name, color, icon?, createdAt
+- **Goal**: id, categoryId, name, description?, targetMinutes, createdAt
+- **TimeEntry**: id, date, startTime?, endTime?, durationMinutes, categoryId, goalId?, notes?, tags?
 
-```bash
-ng build
-```
+## Geliştirme
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Uygulama tamamen signal-based reactive patterns kullanır ve production-ready kod standartlarında yazılmıştır.
